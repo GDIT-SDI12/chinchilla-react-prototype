@@ -20,6 +20,7 @@ export default function Login(props) {
 
             try {
                 props.userHasAuthenticated(true);
+                props.history.push("/");
             } catch (e) {
                 alert(e.message);
             }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { Nav, Navbar, NavItem } from "react-bootstrap";
 import Routes from './containers/Routes';
@@ -10,7 +10,9 @@ function App(props) {
   const [isAuthenticated, userHasAuthenticated] = useState(false);
 
   function handleLogout() {
+    //await Auth.signOut();
     userHasAuthenticated(false);
+    props.history.push("/login");
   }
 
   return (
@@ -46,4 +48,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default withRouter(App);
