@@ -16,7 +16,13 @@ export default function Login(props) {
 
         // TODO: call login endpoint
         try {
-            alert('Logged in');
+            //alert('Logged in');
+
+            try {
+                props.userHasAuthenticated(true);
+            } catch (e) {
+                alert(e.message);
+            }
         } catch (e) {
             alert(e.message);
         }

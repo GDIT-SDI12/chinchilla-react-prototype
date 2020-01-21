@@ -9,6 +9,10 @@ function App(props) {
 
   const [isAuthenticated, userHasAuthenticated] = useState(false);
 
+  function handleLogout() {
+    userHasAuthenticated(false);
+  }
+
   return (
     <div className="App container">
       <Navbar fluid collapseOnSelect>
@@ -21,17 +25,23 @@ function App(props) {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
-            <LinkContainer to="/signup">
-              <NavItem>Signup</NavItem>
-            </LinkContainer>
-            <LinkContainer to="/login">
-              <NavItem>Login</NavItem>
-            </LinkContainer>
+            {isAuthenticated ?
+              <NavItem onClick={handleLogout}>Logout</NavItem>
+              : <>
+                <LinkContainer to="/signup">
+                  <NavItem>Signup</NavItem>
+                </LinkContainer>
+                <LinkContainer to="/login">
+                  <NavItem>Login</NavItem>
+                </LinkContainer>
+              </>
+
+            }
           </Nav>
         </Navbar.Collapse>
       </Navbar>
       {/* TODO: add Routes "/", "/signup", "/login" */}
-      <Routes appProps={{isAuthenticated, userHasAuthenticated}} />
+      <Routes appProps={{ isAuthenticated, userHasAuthenticated }} />
     </div>
   );
 }
