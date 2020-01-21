@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import "./Login.css"
 import LoaderButton from "../components/LoaderButton";
+import { useFormFields } from "../libs/HooksLib";
+import "./Login.css"
 
 export default function Login(props) {
 
     const [isLoading, setIsLoading] = useState(false);
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const [fields, handleFieldChange] = useFormFields({
+        username: "",
+        password: ""
+    });
 
     function validateForm() {
-        return username.length > 0 && password.length > 0;
+        return fields.username.length > 0 && fields.password.length > 0;
     }
 
     async function handleSubmit(event) {
@@ -18,10 +21,8 @@ export default function Login(props) {
 
         setIsLoading(true);
 
-        // sleep for 3 seconds
-        await new Promise( r => setTimeout(r, 3000));
+        //await new Promise( r => setTimeout(r, 3000));
 
-        // TODO: call login endpoint
         try {
             //alert('Logged in');
             try {
@@ -47,16 +48,16 @@ export default function Login(props) {
                     <FormControl
                         autoFocus
                         type="username"
-                        value={username}
-                        onChange={e => setUsername(e.target.value)}
+                        value={fields.username}
+                        onChange={handleFieldChange}
                     />
                 </FormGroup>
                 <FormGroup controlId="password" bsSize="large">
                     <ControlLabel>Password</ControlLabel>
                     <FormControl
                         type="password"
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
+                        value={fields.password}
+                        onChange={handleFieldChange}
                     />
                 </FormGroup>
                 <LoaderButton
