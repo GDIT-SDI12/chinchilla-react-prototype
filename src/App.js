@@ -17,7 +17,7 @@ function App(props) {
 
   return (
     <div className="App">
-      <Navbar bg="light" expand="lg" collapseOnSelect>
+      <Navbar bg="light" expand="lg" fluid collapseOnSelect>
         <LinkContainer to="/">
           <Navbar.Brand>Chinchilla</Navbar.Brand>
         </LinkContainer>

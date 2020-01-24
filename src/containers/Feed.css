@@ -1,0 +1,12 @@
+.Feed {
+    padding : 60px 0;
+}
+
+.Feed .lander h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+}
+
+.Feed .lander p {
+    color: #999;
+}
