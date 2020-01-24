@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
 import { useFormFields } from "../libs/HooksLib";
 import "./Login.css"
@@ -21,7 +21,7 @@ export default function Login(props) {
 
         setIsLoading(true);
 
-        //await new Promise( r => setTimeout(r, 3000));
+        // await new Promise( r => setTimeout(r, 3000));
 
         try {
             //alert('Logged in');
@@ -44,7 +44,7 @@ export default function Login(props) {
             </div>
             <form onSubmit={handleSubmit}>
                 <FormGroup controlId="username" bsSize="large">
-                    <ControlLabel>Username</ControlLabel>
+                    <FormLabel>Username</FormLabel>
                     <FormControl
                         autoFocus
                         type="username"
@@ -53,7 +53,7 @@ export default function Login(props) {
                     />
                 </FormGroup>
                 <FormGroup controlId="password" bsSize="large">
-                    <ControlLabel>Password</ControlLabel>
+                    <FormLabel>Password</FormLabel>
                     <FormControl
                         type="password"
                         value={fields.password}

@@ -7,7 +7,7 @@ export default function Home(props) {
 
     function renderHome() {
         return (
-            <div className="home-chinchilla">
+            <div className="chinchilla container">
                 <h1>Chinchilla</h1>
                 <p>
                     THIS IS THE LANDING PAGE AFTER LOGIN<br/>

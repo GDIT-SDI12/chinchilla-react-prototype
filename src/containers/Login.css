@@ -1,7 +1,7 @@
 @media all and (min-width: 480px) {
 
     .Login {
-        padding : 60px 0;
+        padding : 0 60px 60px 60px;
     }
 
     .Login .logo {

@@ -3,5 +3,6 @@
 }
 
 .App .navbar-brand {
+  color: rgba(0,0,0,.5);
   font-weight: bolder;
 }
